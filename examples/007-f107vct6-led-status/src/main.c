@@ -12,18 +12,18 @@ int main( void ) {
     utils.initNvic( 4 );
     utils.setPinMode( GPIOD, 4, GPIO_MODE_OUTPUT_PP );
     stime.config();
-    stime.scheduler();
+    stime.scheduler.config();
     console.config( 921600, 8, 'n', 1 );
     console.printf( "\r\n\r\n" );
     led.config( LED_DOUBLE_BLINK );
 
     // tasks -----------
-    stime.registerTask( 1000, 2, taskPrint, "taskPrint" );
-    stime.showTasks();
+    stime.scheduler.regist( 1000, 2, taskPrint, "taskPrint" );
+    stime.scheduler.show();
 
     while ( 1 ) {
         console.cliProcess();
-        stime.process();
+        stime.scheduler.process();
     }
     return 0;
 }

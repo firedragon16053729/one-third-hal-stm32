@@ -17,17 +17,17 @@ int main( void ) {
     utils.initNvic( 4 );
     utils.setPinMode( GPIOD, 4, GPIO_MODE_OUTPUT_PP );
     stime.config();
-    stime.scheduler();
+    stime.scheduler.config();
     console.config( 921600, 8, 'n', 1 );
     console.printf( "\r\n" );
 
-    stime.registerTask( 1000, 2, task_printf, "task_printf" );
+    stime.scheduler.regist( 1000, 2, task_printf, "task_printf" );
     // also try _1_TICK, _2_TICK and _3_TICK
     // stime.registerTask( _2_TICK, 1, task_printf, "task_printf" );
-    stime.showTasks();
+    stime.scheduler.show();
 
     while ( 1 ) {
-        stime.process();
+        stime.scheduler.process();
     }
     return 0;
 }

@@ -442,7 +442,7 @@ HAL_StatusTypeDef CliShowScheduler( int argc, char** argv ) {
     if ( strcmp( argv[1], "view" ) == 0 ) {
         console.printk( 0, "\r\n" );
 #if defined( _STIME_USE_SCHEDULER )
-        stime.showTasks();
+        stime.scheduler.show();
 #endif
     }
     else {

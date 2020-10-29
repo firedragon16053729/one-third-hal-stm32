@@ -283,21 +283,19 @@ void SysTick_Handler( void ) {
 // clang-format off
 StimeApi_t stime = {
 #if defined( _STIME_USE_SYSTICK )
-    .config  = InitSysTick    ,
-    .getTime = GetSysTickTime ,
-    // .delayUs = DelayUs        ,
-    // .delayMs = DelayMs        ,
-    .delay.us = DelayUs,
-    .delay.ms = DelayMs,
+    .config   = InitSysTick    ,
+    .getTime  = GetSysTickTime ,
+    .delay.us = DelayUs        ,
+    .delay.ms = DelayMs        ,
 #else
     #error StimeApi_t stime: not implemented.
 #endif
 
 #if defined( _STIME_USE_SCHEDULER )
-    .scheduler    = SchedulerConfig      ,
-    .registerTask = SchedulerRegisterTask,
-    .process      = SchedulerProcess     ,
-    .showTasks    = SchedulerShowTasks   ,
+    .scheduler.config  = SchedulerConfig      ,
+    .scheduler.regist  = SchedulerRegisterTask,
+    .scheduler.process = SchedulerProcess     ,
+    .scheduler.show    = SchedulerShowTasks   ,
 #endif
 };
 // clang-format on
