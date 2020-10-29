@@ -18,9 +18,9 @@ int main( void ) {
     // also try _1_TICK, _2_TICK and _3_TICK
     stime.scheduler.show();
 
-    while ( 1 ) {
-        console.cli.process();
-        stime.scheduler.process();
-    }
+    // system start to run -----------
+    stime.scheduler.run();
+
+    console.printf( "main ends.\r\n" );
     return 0;
 }

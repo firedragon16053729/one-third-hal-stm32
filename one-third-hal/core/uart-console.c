@@ -259,7 +259,7 @@ void UART5_IRQHandler( void ) {
 extern void ConsolePrintf( char* sign_data, char* format, va_list ap );
 
 // ============================================================================
-static void one_third_printk( SyslogLevel_e level, char* format, ... ) {
+static void one_third_printk( LogLevel_e level, char* format, ... ) {
     if ( level <= console.level ) {
         char    sign_data[_CONSOLE_SIGN_DATA_SIZE];
         va_list ap;
@@ -316,7 +316,7 @@ static char consoleGetChar( uint16_t time ) {
 }
 
 // ============================================================================
-static void consoleSetLevel( SyslogLevel_e l ) {
+static void consoleSetLevel( LogLevel_e l ) {
     console.level = l;
 }
 
@@ -408,7 +408,7 @@ static void consoleConfig( uint32_t baud_rate, uint8_t len, char parity,
     // register some default commands -------------
     CliRegisterCmd( "help", ( CliHandle )CliShowCmd );
     CliRegisterCmd( "reset", ( CliHandle )CliReset );
-    CliRegisterCmd( "log &level", ( CliHandle )CliSyslogSetLevel );
+    CliRegisterCmd( "log &level", ( CliHandle )CliLogSetLevel );
     CliRegisterCmd( "firmware", ( CliHandle )CliCheckFirmware );
     CliRegisterCmd( "scheduler &cmd", ( CliHandle )CliShowScheduler );
 

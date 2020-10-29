@@ -259,6 +259,14 @@ static void SchedulerShowTasks( void ) {
     //     YLW "----------------------------------------------\r\n" NOC );
     CONSOLE_PRINTF_SEG;
 }
+
+// ----------------------------------------------------------------------------
+void SchedulerRun( void ) {
+    while ( true ) {
+        console.cli.process();
+        SchedulerProcess();
+    }
+}
 #endif  // _STIME_USE_SCHEDULER
 
 // ----------------------------------------------------------------------------
@@ -296,6 +304,7 @@ StimeApi_t stime = {
     .scheduler.regist  = SchedulerRegisterTask,
     .scheduler.process = SchedulerProcess     ,
     .scheduler.show    = SchedulerShowTasks   ,
+    .scheduler.run     = SchedulerRun         ,
 #endif
 };
 // clang-format on

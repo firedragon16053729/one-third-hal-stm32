@@ -26,8 +26,10 @@ int main( void ) {
     // stime.registerTask( _2_TICK, 1, task_printf, "task_printf" );
     stime.scheduler.show();
 
-    while ( 1 ) {
-        stime.scheduler.process();
-    }
+    // system start to run -----------
+    stime.scheduler.run();
+
+    console.printf( "main ends.\r\n" );
+
     return 0;
 }

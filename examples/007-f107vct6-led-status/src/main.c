@@ -21,9 +21,9 @@ int main( void ) {
     stime.scheduler.regist( 1000, 2, taskPrint, "taskPrint" );
     stime.scheduler.show();
 
-    while ( 1 ) {
-        console.cli.process();
-        stime.scheduler.process();
-    }
+    // system start to run -----------
+    stime.scheduler.run();
+
+    console.printf( "main ends.\r\n" );
     return 0;
 }

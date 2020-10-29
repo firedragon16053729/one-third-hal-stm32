@@ -98,6 +98,7 @@ typedef struct  {
     void ( *regist )( uint32_t, uint32_t, TaskHandle, const char*);
     void ( *process )( void )                                     ;
     void ( *show )( void )                                        ;
+    void ( *run )( void )                                         ;
 } Scheduler;
 #endif
 

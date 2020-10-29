@@ -104,21 +104,21 @@ typedef enum {
     LOG_CRIT = 0,  // Critical messages, cannot be shut off
     LOG_WARNING,   // Warning conditions that should be taken care of.
     LOG_INFO,  // informational messages that require no action, can be shut off
-} SyslogLevel_e;
+} LogLevel_e;
 
 typedef struct {
-    void ( *setLevel )( SyslogLevel_e l );
+    void ( *setLevel )( LogLevel_e l );
     void ( *regist )( char* str, CliHandle p );
     void ( *process )( void );
 } Cli;
 // ============================================================================
 // clang-format off
 typedef struct {
-    SyslogLevel_e level                                         ;
+    LogLevel_e level                                         ;
     void   ( *config )( uint32_t, uint8_t, char, uint8_t )      ;
     void   ( *setTxMode )( ConsoleTx_e )                        ;
     void   ( *enableRxen )( bool )                              ;
-    void   ( *printk )( SyslogLevel_e level, char* format, ... );
+    void   ( *printk )( LogLevel_e level, char* format, ... );
     void   ( *printf )( char* format, ... )                     ;
     void   ( *writeByte )( char )                               ;
     void   ( *writeStr )( char* )                               ;
