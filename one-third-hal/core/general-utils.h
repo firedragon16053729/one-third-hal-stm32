@@ -60,12 +60,15 @@ typedef enum {
 } RtosState_e;
 #endif
 
+typedef struct {
+    HAL_StatusTypeDef ( *initClock )( void );
+    void ( *initNvic )( uint8_t group );
+} System;
 // ============================================================================
 // component API
 // clang-format off
 typedef struct {
-    HAL_StatusTypeDef ( *initSystemClock )( void )                          ;
-    void ( *initNvic )( uint8_t group )                                     ;
+    System system                                                           ;
     void ( *enableGpioClock )( GPIO_TypeDef* GPIOx )                        ;
     void ( *enableTimerClock )( TIM_TypeDef* TIMx )                         ;
     void ( *enableUartClock )( USART_TypeDef* USARTx )                      ;

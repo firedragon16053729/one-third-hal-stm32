@@ -1,4 +1,4 @@
-#if !defined( __LED_STATUS_H
+#ifndef __LED_STATUS_H
 #define __LED_STATUS_H
 
 #ifdef __cplusplus

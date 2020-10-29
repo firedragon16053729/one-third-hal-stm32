@@ -2,8 +2,8 @@
 
 // ============================================================================
 int main( void ) {
-    utils.initSystemClock();
-    utils.initNvic( 4 );
+    utils.system.initClock();
+    utils.system.initNvic( 4 );
     utils.setPinMode( GPIOD, 4, GPIO_MODE_OUTPUT_PP );
     stime.config();
     console.config( 921600, 8, 'n', 1 );
