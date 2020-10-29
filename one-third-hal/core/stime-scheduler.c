@@ -285,8 +285,10 @@ StimeApi_t stime = {
 #if defined( _STIME_USE_SYSTICK )
     .config  = InitSysTick    ,
     .getTime = GetSysTickTime ,
-    .delayUs = DelayUs        ,
-    .delayMs = DelayMs        ,
+    // .delayUs = DelayUs        ,
+    // .delayMs = DelayMs        ,
+    .delay.us = DelayUs,
+    .delay.ms = DelayMs,
 #else
     #error StimeApi_t stime: not implemented.
 #endif

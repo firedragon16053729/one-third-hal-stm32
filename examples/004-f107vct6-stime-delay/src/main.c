@@ -22,7 +22,7 @@ int main( void ) {
             ( time.s - time_old.s ) * 1000000 + ( time.us - time_old.us );
         console.printf( "diff = %6ld us, diff2 = %3ld us\r\n", diff,
                         diff - 500000 );
-        stime.delayUs( 500000 - 1075 );
+        stime.delay.us( 500000 - 1075 );
         time_old = time;
         loop_count++;
     }

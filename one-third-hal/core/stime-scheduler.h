@@ -88,10 +88,15 @@ typedef struct TaskNode_s {
 // clang-format off
 #if defined( STIME_IS_USED )
 typedef struct {
+    void ( *us ) ( uint32_t );
+    void ( *ms )  (uint32_t );
+} Delay;
+typedef struct {
     void    ( *config )( void )     ;
     Stime_t ( *getTime )( void )    ;
-    void    ( *delayUs )( uint32_t );
-    void    ( *delayMs )( uint32_t );
+    // void    ( *delayUs )( uint32_t );
+    // void    ( *delayMs )( uint32_t );
+    Delay   delay  ;
 #if defined( _STIME_USE_SCHEDULER )
     void ( *scheduler )( void )                                         ;
     void ( *registerTask )( uint32_t, uint32_t, TaskHandle, const char*);
