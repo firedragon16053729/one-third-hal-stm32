@@ -167,10 +167,10 @@ static void consoleWriteStr( char* ptr ) {
 static void Init_USART2_PA2PA3( uint32_t baud_rate, uint8_t len, char parity,
                                 uint8_t stop_b ) {
     // gpio setting
-    utils.enableGpioClock( GPIOA );
+    utils.clock.enableGpio( GPIOA );
     InitUartPins( GPIOA, 2, GPIOA, 3 );
     // usart setting
-    utils.enableUartClock( USART2 );
+    utils.clock.enableUart( USART2 );
     InitUartSettings( USART2, baud_rate, len, parity, stop_b );
 
     InitUartNvic( USART2_IRQn );
@@ -186,10 +186,10 @@ static void Init_USART2_PA2PA3( uint32_t baud_rate, uint8_t len, char parity,
 static void Init_USART2_PD5PD6( uint32_t baud_rate, uint8_t len, char parity,
                                 uint8_t stop_b ) {
     // gpio setting
-    utils.enableGpioClock( GPIOD );
+    utils.clock.enableGpio( GPIOD );
     InitUartPins( GPIOD, 5, GPIOD, 6 );
     // usart setting
-    utils.enableUartClock( USART2 );
+    utils.clock.enableUart( USART2 );
     // do not forget those how to do this? do not delete
     // RCC_APB2PeriphClockCmd( RCC_APB2Periph_AFIO, ENABLE );
     // PinRemapConfig( GPIO_Remap_USART2, ENABLE );
@@ -233,11 +233,11 @@ void USART2_IRQHandler( void ) {
 static void InitUART5_PC12PD2( uint32_t baud_rate, uint8_t len, char parity,
                                uint8_t stop_b ) {
     // gpio setting
-    utils.enableGpioClock( GPIOC );
-    utils.enableGpioClock( GPIOD );
+    utils.clock.enableGpio( GPIOC );
+    utils.clock.enableGpio( GPIOD );
     InitUartPins( GPIOC, 12, GPIOD, 2 );
     // usart setting
-    utils.enableUartClock( UART5 );
+    utils.clock.enableUart( UART5 );
     InitUartSettings( UART5, baud_rate, len, parity, stop_b );
 
     InitUartNvic( UART5_IRQn );

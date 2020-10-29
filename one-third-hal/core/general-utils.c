@@ -254,11 +254,11 @@ static RtosState_e getRtosState( void ) {
 // ============================================================================
 // clang-format off
 CoreUtilsApi_t utils = {
-    .system.initClock = InitSystemClock   ,
-    .system.initNvic  = InitNvicInterrupt ,
-    .enableGpioClock  = enableGpioClock   ,
-    .enableTimerClock = enableTimerClock  ,
-    .enableUartClock  = enableUartClock   ,
+    .system.initClock  = InitSystemClock   ,
+    .system.initNvic   = InitNvicInterrupt ,
+    .clock.enableGpio  = enableGpioClock   ,
+    .clock.enableTimer = enableTimerClock  ,
+    .clock.enableUart  = enableUartClock   ,
     .setPinMode       = setPinMode        ,
     .setPinPull       = setPinPull        ,
     .setPin           = setPin            ,

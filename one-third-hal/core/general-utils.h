@@ -64,14 +64,19 @@ typedef struct {
     HAL_StatusTypeDef ( *initClock )( void );
     void ( *initNvic )( uint8_t group );
 } System;
+
+typedef struct {
+    void ( *enableGpio )( GPIO_TypeDef* GPIOx );
+    void ( *enableTimer )( TIM_TypeDef* TIMx );
+    void ( *enableUart )( USART_TypeDef* USARTx );
+} Clock;
+
 // ============================================================================
 // component API
 // clang-format off
 typedef struct {
     System system                                                           ;
-    void ( *enableGpioClock )( GPIO_TypeDef* GPIOx )                        ;
-    void ( *enableTimerClock )( TIM_TypeDef* TIMx )                         ;
-    void ( *enableUartClock )( USART_TypeDef* USARTx )                      ;
+    Clock clock        ;
     void ( *setPinMode )( GPIO_TypeDef* GPIOx, uint8_t pin_n, uint32_t io ) ;
     void ( *setPinPull )( GPIO_TypeDef* GPIOx, uint8_t pin_n, uint32_t p )  ;
     void ( *setPin )( GPIO_TypeDef* GPIOx, uint8_t pin_n, bool v )          ;
