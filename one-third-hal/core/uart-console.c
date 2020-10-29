@@ -545,11 +545,11 @@ Console_t console = {
     .writeStr   = consoleWriteStr   ,
     .error      = consoleError      ,
     .read       = consoleGetChar    ,
-    .setLevel   = consoleSetLevel   ,
 
     // cli related
-    .cliRegister = CliRegisterCmd   ,
-    .cliProcess  = CliEentHandle,
+    .cli.setLevel = consoleSetLevel  ,
+    .cli.regist   = CliRegisterCmd   ,
+    .cli.process  = CliEentHandle    ,
 };
 // clang-format on
 

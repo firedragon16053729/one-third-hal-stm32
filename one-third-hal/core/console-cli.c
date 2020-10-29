@@ -362,20 +362,20 @@ HAL_StatusTypeDef CliSyslogSetLevel( int argc, char** argv ) {
         if ( console.level > 0 ) {
             console.level -= 1;
         }
-        console.setLevel( console.level );
+        console.cli.setLevel( console.level );
         console.printk( 0, "\r\n syslog level set to %d", console.level );
     }
     else if ( strcmp( argv[1], "higher" ) == 0 ) {
         if ( console.level < LOG_INFO ) {
             console.level += 1;
         }
-        console.setLevel( console.level );
+        console.cli.setLevel( console.level );
         console.printk( 0, "\r\n syslog level set to %d", console.level );
     }
     else {
         SyslogLevel_e level = atoi( argv[1] );
         if ( level <= LOG_INFO ) {
-            console.setLevel( level );
+            console.cli.setLevel( level );
             console.printk( 0, "\r\n syslog level set to %d", level );
         }
         else {

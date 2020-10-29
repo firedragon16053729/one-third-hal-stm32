@@ -19,7 +19,7 @@ int main( void ) {
     stime.scheduler.show();
 
     while ( 1 ) {
-        console.cliProcess();
+        console.cli.process();
         stime.scheduler.process();
     }
     return 0;

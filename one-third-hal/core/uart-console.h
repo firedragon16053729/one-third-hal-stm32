@@ -106,6 +106,11 @@ typedef enum {
     LOG_INFO,  // informational messages that require no action, can be shut off
 } SyslogLevel_e;
 
+typedef struct {
+    void ( *setLevel )( SyslogLevel_e l );
+    void ( *regist )( char* str, CliHandle p );
+    void ( *process )( void );
+} Cli;
 // ============================================================================
 // clang-format off
 typedef struct {
@@ -119,10 +124,8 @@ typedef struct {
     void   ( *writeStr )( char* )                               ;
     void   ( *error )( char* format, ... )                      ;
     char   ( *read )( uint16_t )                                ;
-    void   ( *setLevel ) (SyslogLevel_e l)                      ;
     // command line interface
-    void   ( *cliRegister )( char* str, CliHandle p );
-    void   ( *cliProcess )( void )                   ;
+    Cli     cli  ;
 } Console_t;
 extern Console_t console;
 // clang-format on
