@@ -277,7 +277,7 @@ void SysTick_Handler( void ) {
     if ( tick_ >= SYSTICK_1S_OVERFLOW ) {
         tick_ = 0;
         second_++;
-        // utils.togglePin( GPIOD, 4 );  // test only
+        // utils.pin.toggle( GPIOD, 4 );  // test only
     }
 #if defined( _STIME_USE_SCHEDULER )
     TasksMark();

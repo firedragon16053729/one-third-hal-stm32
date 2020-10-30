@@ -5,7 +5,7 @@
 int main( void ) {
     utils.system.initClock();
     utils.system.initNvic( 4 );
-    utils.setPinMode( GPIOD, 4, GPIO_MODE_OUTPUT_PP );
+    utils.pin.mode( GPIOD, 4, GPIO_MODE_OUTPUT_PP );
     stime.config();
     console.config( 921600, 8, 'n', 1 );
     console.printf( "\r\n" );

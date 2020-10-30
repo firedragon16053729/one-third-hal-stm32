@@ -57,7 +57,7 @@ static void CalculateParameters( LedHeartBeat_e mode ) {
 
 // ============================================================================
 static void LedToggleHeartBeat( void ) {
-    utils.togglePin( _LED_HEARTBEAT_PORT, _LED_HEARTBEAT_PIN );
+    utils.pin.toggle( _LED_HEARTBEAT_PORT, _LED_HEARTBEAT_PIN );
 }
 
 // ============================================================================
@@ -71,7 +71,7 @@ static void LedHeartBeatOn( bool v ) {
 
 // ============================================================================
 static void LedToggleError( void ) {
-    utils.togglePin( _LED_ERROR_PORT, _LED_ERROR_PIN );
+    utils.pin.toggle( _LED_ERROR_PORT, _LED_ERROR_PIN );
 }
 
 // ============================================================================
@@ -137,9 +137,9 @@ static void LedGpioConfig( LedHeartBeat_e mode ) {
     mode_ = mode;
     CalculateParameters( mode );
     // GPIO initialization ---------
-    utils.setPinMode( _LED_HEARTBEAT_PORT, _LED_HEARTBEAT_PIN,
-                      GPIO_MODE_OUTPUT_PP );
-    utils.setPinMode( _LED_ERROR_PORT, _LED_ERROR_PIN, GPIO_MODE_OUTPUT_PP );
+    utils.pin.mode( _LED_HEARTBEAT_PORT, _LED_HEARTBEAT_PIN,
+                    GPIO_MODE_OUTPUT_PP );
+    utils.pin.mode( _LED_ERROR_PORT, _LED_ERROR_PIN, GPIO_MODE_OUTPUT_PP );
 
     LedHeartBeatOn( false );
     LedErrorOn( false );

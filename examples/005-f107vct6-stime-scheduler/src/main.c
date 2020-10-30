@@ -8,14 +8,14 @@ void task_printf( void ) {
                     time.s, time.us / 1000 );
     // test for _1_TICK, _2_TICK and _3_TICK
     // console.printf( "%5d\r\n", task_count++ );
-    utils.togglePin( GPIOD, 4 );
+    utils.pin.toggle( GPIOD, 4 );
 }
 
 // ============================================================================
 int main( void ) {
     utils.system.initClock();
     utils.system.initNvic( 4 );
-    utils.setPinMode( GPIOD, 4, GPIO_MODE_OUTPUT_PP );
+    utils.pin.mode( GPIOD, 4, GPIO_MODE_OUTPUT_PP );
     stime.config();
     stime.scheduler.config();
     console.config( 921600, 8, 'n', 1 );

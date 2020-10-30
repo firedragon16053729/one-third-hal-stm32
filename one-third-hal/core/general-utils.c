@@ -259,13 +259,13 @@ CoreUtilsApi_t utils = {
     .clock.enableGpio  = enableGpioClock   ,
     .clock.enableTimer = enableTimerClock  ,
     .clock.enableUart  = enableUartClock   ,
-    .setPinMode       = setPinMode        ,
-    .setPinPull       = setPinPull        ,
-    .setPin           = setPin            ,
-    .togglePin        = togglePin         ,
+    .pin.mode          = setPinMode        ,
+    .pin.pull          = setPinPull        ,
+    .pin.set           = setPin            ,
+    .pin.toggle        = togglePin         ,
 #if defined( RTOS_IS_USED )
-    .setRtosState     = setRtosState      ,
-    .getRtosState     = getRtosState      ,
+    .rtos.setState     = setRtosState      ,
+    .rtos.getState     = getRtosState      ,
 #endif
 };
 // clang-format on
