@@ -541,9 +541,9 @@ Console_t console = {
     .enableRxen = consoleEnableRxen ,
     .printk     = one_third_printk  ,
     .printf     = one_third_printf  ,
+    .error      = consoleError      ,
     .writeByte  = consoleWriteByte  ,
     .writeStr   = consoleWriteStr   ,
-    .error      = consoleError      ,
     .read       = consoleGetChar    ,
 
     // cli related
